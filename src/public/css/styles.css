@@ -1,0 +1,508 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    color: #426696;
+    font-weight: 600;
+    font-size: 3rem;
+    opacity: 0.8;
+  }
+  h2,
+  p {
+    color: #658ec6;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+  
+  h3 {
+    color: #426696;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+  
+  /* BACKGROUND */
+  
+  main {
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* PANEL */
+  
+  .glass {
+    background: white;
+    min-height: 80vh;
+    width: 60%;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 2rem;
+    z-index: 2;
+    backdrop-filter: blur(2rem);
+    display: flex;
+  }
+  .dashboard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 2rem;
+  }
+  
+  .panel {
+    flex: 2;
+  }
+  
+  /* DASHBOARD ELEMENTS */
+  
+  .user{
+      width: 100%;
+  }
+  .selected{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      height: 250px;
+  }
+  
+  .selected button{
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 80%;
+      height: 30px;
+      font-family: "Poppins", sans-serif;
+      background-color: #c9f8ef;
+      border: none;
+      border-radius: 2rem;
+      outline: none;
+  }
+  .legend{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 150px;
+      height: 20px;
+  }
+  .number{
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+      background-color: #65dfc9;
+      border-radius: 50%;
+  }
+  .selected button:hover{
+    background-color: #d1fcf4;
+  }
+  .emails{
+      display: none;
+      width: 80%;
+      height: 0px;
+      border-radius: 2rem;
+      box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.212);
+  }
+  .emails-active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 150px;
+    border-radius: 2rem;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.212);
+  }
+  .emails ul{
+    width: 80%;
+    height: 80%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .emails ul::-webkit-scrollbar{
+    display: none;
+  }
+  .emails li{
+    font-size: 10pt;
+    list-style: none;
+  }
+  .mailer, .textzone{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+  }
+  .textzone{
+      height: 280px;
+  }
+  .frame{
+      width: 80%;
+      height: 150px;
+      background-color: white;
+      padding: 5%;
+      border: none;
+      border-radius: 2rem;
+      box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.212);
+  }
+  .toolbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100px;
+    background-color: #c9f8ef;
+    border-radius: 2rem;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.212);
+  }
+  .tl-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    overflow-y: scroll;
+  }
+  .tl-content button{
+    width: 20px;
+    height: 20px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+  }
+  .tl-content select{
+    background-color: white;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 2rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  .tl-content::-webkit-scrollbar{
+    display: none;
+  }
+  .credentials{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+  }
+  .data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100px;
+    background-color: #c9f8ef;
+    border-radius: 2rem;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.212);
+  }
+  .data input{
+      width: 80%;
+      height: 30px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-family: "Poppins", sans-serif;
+  }
+  .data button{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 30px;
+    font-family: "Poppins", sans-serif;
+    background-color: #c9f8ef;
+    border: none;
+    border-radius: 2rem;
+    outline: none;
+  }
+  .data button:hover{
+    background-color: #d1fcf4;
+  }
+  
+  /* REGISTERED USERS PANEL */
+  
+  .status {
+    margin-bottom: 3rem;
+  }
+  
+  .status input {
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+    border: none;
+    width: 50%;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    outline: none;
+  }
+  
+  .panel {
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .progress {
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+    width: 100%;
+    height: 25%;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .progress::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgb(236, 236, 236);
+    position: absolute;
+    left: 60%;
+  }
+  
+  /* USERS CARD AND TABLE */
+  
+  .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+  }
+  .table{
+    height: 80%;
+    width: 80%;
+    overflow-y: scroll;
+  }
+  .table table{
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(189, 189, 189);
+    border-radius: 10px;
+  }
+  
+  /* Alert */
+  .alert-err{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; 
+    height: 100px; 
+    position: absolute; 
+    right: 0; 
+    background-color: #E88582; 
+    border-radius: 2rem;
+    margin: 23px;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.212);
+  }
+  .alert-succ{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; 
+    height: 100px; 
+    position: absolute; 
+    right: 0; 
+    background-color: #98f77e; 
+    border-radius: 2rem;
+    margin: 23px;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.212);
+  }
+  .image-prompt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    top: 50%;
+    margin-top: -250px;
+    left: 50%;
+    margin-left: -250px;
+    z-index: 99;
+    border-radius: 2rem;
+  }
+  .image-prompt h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+  }
+  .background{
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 98;
+    opacity: 50%;
+  }
+  .nav, .menu{
+    display: none;
+  }
+  
+  @media (max-width: 1200px){
+    .nav{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100px;
+      background-color: #c9f8ef;
+      z-index: 99;
+    }
+    .hamburger{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      margin: 10px;
+      width: 80px;
+      height: 80px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+    .line{
+      width: 60px;
+      height: 5px;
+      background-color:#426696;
+      border-radius: 2rem;
+    }
+    .menu{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      width: 50%;
+      height: 100vh;
+      right: -50%;
+      top: 0;
+      background-color: #c9f8ef;
+      z-index: 99;
+      transition: all 1s ease;
+    }
+    .menu .hamburger{
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 10px;
+    }
+    .menu ul{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 80%;
+      height: 60%;
+    }
+    .menu li{
+      list-style: none;
+      text-transform: uppercase;
+    }
+    .menu li:hover{
+      color: #426696;
+      cursor: pointer;
+    }
+    main{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 2600px;
+    }
+    .dark-bgrd{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      z-index: 98;
+      pointer-events: none;
+      transition: all 1s ease;
+    }
+    .glass{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 2500px;
+      border-radius: 0;
+      position: relative;
+      top: 100px;
+    }
+    .dashboard{
+      display: flex;
+      flex: none;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 66%;
+      border-radius: 0;
+    }
+    .credentials{
+      height: 200px;
+    }
+    .credentials form{
+      height: 100%;
+    }
+    .selected{
+      height: 500px;
+    }
+    .selected button{
+      height: 60px;
+    }
+    .emails-active{
+      height: 300px;
+    }
+    .textzone{
+      height: 560px;
+    }
+    .textzone iframe{
+      height: 300px;
+    }
+    .toolbar{
+      height: 200px;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }

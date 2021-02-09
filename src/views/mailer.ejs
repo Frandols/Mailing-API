@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass Website</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://kit.fontawesome.com/1e87ac1dc4.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- BACKGROUND -->
+    <main>
+      <!-- NAVIGATION BAR MOBILE -->
+      <div class="nav">
+        <button id="menu-open" class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </button>
+      </div>
+      <div class="menu">
+        <button id="menu-close" class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </button>
+        <ul>
+          <li target=".user">Register</li>
+          <li target=".panel">Select Users</li>
+          <li target=".mailer">Send Emails</li>
+        </ul>
+      </div>
+      <div class="dark-bgrd"></div>
+      <!-- FULL PANEL -->
+      <section class="glass">
+        <% if (msg != '') { %>
+         <% if (msg === 'err') { %>
+          <div class="alert-err">
+            An error happend! Try later...
+          </div>
+        <% } %>
+        <% if (msg === 'succ') { %>
+          <div class="alert-succ">
+            Perfect! No errors...
+          </div>
+        <% } %>
+        <% } %>
+        <!-- DASHBOARD, LEFT SIDE OF PANEL -->
+        <div class="dashboard">
+          <!-- USER REGISTER TABLE -->
+          <div class="user">
+            <div class="credentials">
+                <form action="/add" method="POST" class="data" id="data-add">
+                    <input type="text" name="name" placeholder="Name" autocomplete="off">
+                    <input type="text" name="email" placeholder="Email" autocomplete="off">
+                    <button type="submit">Register</button>
+                </form>
+              </div>
+          </div>
+          <!-- SELECTED EMAILS VIEW SECTION -->
+          <div class="selected">
+              <button id="drop-emails">
+                  <div class="legend">
+                      <legend>Emails selected</legend>
+                      <!-- NUMBER DISPLAYED WITH JAVASCRIPT -->
+                      <div class="number"></div>
+                  </div>
+                  <div class="dropdown">
+                    <i class="fas fa-caret-down"></i>
+                  </div>
+              </button>
+              <div class="emails">
+                <ul>
+                  <!-- EMAIL LIST DISPLAYED WITH JAVASCRIPT -->
+                </ul>
+              </div>
+          </div>
+          <!-- MAILER SECTION, TEXTBOX, TOOLBAR AND USER -->
+          <div class="mailer">
+              <div class="textzone">
+                  <iframe class="frame" id="msg-frame"></iframe>
+                  <div class="toolbar">
+                    <div class="tl-content">
+                      <button class="fas fa-bold" name="bold"></button>
+                    <button class="fas fa-italic" name="italic"></button>
+                    <button class="fas fa-underline" name="underline"></button>
+                    <button class="fas fa-align-left" name="justifyLeft"></button>
+                    <button class="fas fa-align-center" name="justifyCenter"></button>
+                    <button class="fas fa-align-right" name="justifyRight"></button>
+                    <button class="fas fa-align-justify" name="justifyFull"></button>
+                    <button class="fas fa-list-ul" name="insertUnorderedList"></button>
+                    <button class="fas fa-list-ol" name="insertOrderedList"></button>
+                    <select class="select-list" name="fontName">
+                      <option value="Arial">Arial</option>
+                      <option value="Comic Sans MS">Comic Sans MS</option>
+                      <option value="Courier">Courier</option>
+                      <option value="Georgia">Georgia</option>
+                      <option value="Tahoma">Tahoma</option>
+                      <option value="Times New Roman">Times New Roman</option>
+                      <option value="Verdana">Verdana</option>
+                  </select>
+                  <select class="select-list" name="fontSize">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                  </select>
+                  <button id="image-button"><i class="fa fa-file-image-o"></i></button>
+                    </div>
+                </div>
+              </div>
+              <!-- SENDER USER CREDENTIALS -->
+              <div class="credentials">
+                <form action="/send" method="POST" class="data" id="data-send">
+                    <input type="text" name="name" placeholder="Name" autocomplete="off">
+                    <input type="text" name="email" placeholder="Email" autocomplete="off">
+                    <input type="text" name="emails" style="display: none" id="emails-hide-input">
+                    <input type="text" name="message" style="display: none" id="message-hide-input">
+                    <button type="submit" id="data-submit">Send</button>
+                </form>
+              </div>
+          </div>
+        </div>
+        <!-- RIGHT SIDE OF FULL PANEL -->
+        <div class="panel">
+          <!-- INPUT FOR USER SEARCH -->
+          <div class="status">
+            <h1>Users</h1>
+            <form action="/search" method="POST">
+              <input type="text" id="search-user" name="search" placeholder="Search name..." autocomplete="off"/>
+            </form>
+          </div>
+          <!-- CARD FOR TABLE DISPLAY -->
+          <div class="card">
+              <div class="table">
+                  <table>
+                      <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td></td>
+                        </tr>
+                      </thead>
+                      <!-- TABLE DISPLAYED BASED ON DATA FROM DATABASE -->
+                      <tbody>
+                        <% if (data) { %>
+                            <% for (var i = 0; i < data.length; i++) { %>
+                                <tr>
+                                    <td target='<%= (i + 1) %>' class="number-data"><%= (i + 1) %></td>
+                                    <td target='<%= (i + 1) %>' class="name-data"><%= data[i].name %></td>
+                                    <td target='<%= (i + 1) %>' class="email-data"><%= data[i].email %></td>
+                                    <td><input target='<%= (i + 1) %>' type="checkbox" class="check-input"></td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                        <% if (data.length === 0) { %>
+                          <tr><td>Users not found!</td></tr>
+                          <% } %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  <script src="js/app.js"></script>  
+  </body>
+</html>
